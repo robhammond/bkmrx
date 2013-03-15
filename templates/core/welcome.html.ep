@@ -1,0 +1,37 @@
+% layout 'default';
+% title 'Store & search your bookmarks';
+<div class="row-fluid">
+		<div class="span12">
+		<div class="row-fluid">
+			<div class="span6">
+				<h2>bkmrx.org</h2>
+				<p>bkmrx is an open source bookmarking service. With <b>full-text search</b> of all your saved links, along with
+				integration with Twitter &amp; Github, bkmrx is your personal recollection engine.</p>
+			</div>
+			<div class="span6">
+				<h3>where do i sign up?</h3>
+				<p>you can <a href="/login" class="btn btn-medium btn-primary">sign up here!</a></p>
+			</div>
+		</div>
+		
+		
+		<section class="row-fluid featured">
+			<div class="span12">
+				<header class="page-header"><h2>features</h2></header>
+				<div class="row-fluid">
+					<div class="span6"><h2>enterprise search</h2><p>flexible, powerful search built around your links to recover links you've saved or alternatively discover new ones from other users.</p></div>
+					<div class="span6"><h2>import</h2><p>your delicious &amp; firefox bookmarks</p></div>
+				</div>
+				<div class="row-fluid">
+					<div class="span6"><h2>integration</h2><p>with <i class="icon-twitter" style="color:#9AE4E8;"></i> twitter and <i class="icon-github" style="color:;"></i> github, with more services coming soon</p></div>
+					<div class="span6"><h2>backup</h2><p>save your links in an industry compatible format</p></div>
+				</div>
+				<div class="row-fluid">
+					<div class="span6"><h2>share</h2><p> and search other people's bookmarks</p></div>
+					<div class="span6"><h2>bookmarklets</h2><p>for Firefox, Chrome and iOS so you can add links from anywhere</p></div>
+				</div>
+			</div>
+		</section>
+		
+	</div>
+</div>

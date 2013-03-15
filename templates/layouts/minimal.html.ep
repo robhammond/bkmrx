@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %> | <%= $config->{brand} %></title>
+	<script src="/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.tagedit.js"></script>
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bkx-styles.css" rel="stylesheet">
+	<link href="/css/jquery-ui-1.8.16.custom.css" rel="stylesheet">
+	<link href="/css/jquery.tagedit.css" rel="stylesheet">
+</head>
+<body>
+<div class="navbar">
+	<div class="navbar-inner">
+		<a class="brand" href="/"><%= $config->{brand} %></a>
+		% if (session 'user_id') {
+			<p class="pull-right" style="font-size:90%;padding-top:7px;">logged in as: <strong><%= session 'username' %></strong> (not <%= session 'username' %>? <a href="/logout">log out</a>)</p>
+		% }
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<%= content %>
+	</div>
+</div>
+<hr>
+<footer>
+<p>&copy; bkmrx 2011-2013</p>
+</footer>
+%= include 'parts/js-common'
+</body>
+</html>

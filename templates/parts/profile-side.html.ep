@@ -1,0 +1,25 @@
+<div class="span2 well">
+	<a href="/user/<%= $name %>"><img src="<%= $gravatar %>" /></a>
+	<ul class="nav nav-list">
+		<li class="nav-header">profile</li>
+		<% if ($type eq 'me') { %>
+			<p><button class="btn disabled" id="follow-user">it's you!</button></p>
+		<% } elsif ($type eq 'friend') { %>
+			<p><button class="btn btn-success disabled" id="follow-user">following!</button></p>
+		<% } elsif ($type eq 'stranger') { %>
+			<p><button class="btn btn-primary" id="follow-user">follow</a></button>
+		<% } else { %>
+			<p><a href='/login'>Login</a> to follow</p>
+		<% } %>
+		<li><a href="/user/<%= $name %>"><i class="icon-user"></i> <%= $name %></a></li>
+		<% if ($user->{'website'} ne '') { %>
+			<li><a href="<%= $user->{'website'} %>"><i class="icon-globe"></i> website</a></li>
+		<% }
+		if ($user->{'social'}->{'twitter'} ne '') { %>
+			<li><a href="http://twitter.com/<%= $user->{'social'}->{'twitter'} %>"><i class="icon-twitter"></i> twitter</a></li>
+		<% }
+		if ($user->{'social'}->{'github'} ne '') { %>
+			<li><a href="http://github.com/<%= $user->{'social'}->{'github'} %>"><i class="icon-github"></i> github</a></li>
+		<% } %>
+	</ul>
+</div>

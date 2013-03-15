@@ -1,0 +1,187 @@
+/*
+******************
+* General Styles *
+******************
+*/
+.faves {
+	padding-left:20px;
+}
+
+.hidden { 
+	visibility:hidden;
+}
+
+.async_status {
+	display: none;
+}
+
+.bkx-jedit-hide {
+	display: none;
+}
+
+.bkx-jedit-show {
+	display: inline !important;
+	float: left;
+	padding: 0 4px;
+}
+
+
+/*
+******************************
+Bookmark specific stylings
+******************************
+*/
+div.bkx-editor:hover {
+	cursor: pointer;
+}
+div.bkmrk {
+	padding: 10px 0;
+}
+div.bkmrk .desc, div.bkmrk span.url, div.bkmrk h3 {
+	display:block;
+	padding-left: 25px;
+}
+
+.bkx-actions i {
+	display:inline !important;
+	padding-left:5px;
+	padding-right:4px;
+	font-size:16px;
+	float:left;
+}
+.bkx-lock {
+	color: #D5B55B;
+}
+.bkx-unlock {
+	color: gray;
+}
+
+div.bkmrk .bkx-lock:hover, div.bkmrk .bkx-unlock:hover {
+	cursor: pointer;
+}
+
+div.bkmrk span.date {
+	color:gray;
+}
+span.url {
+	color:green;
+}
+div.bkmrk h3 {
+	font-size:16px;
+	margin-top:-12px;
+	margin-bottom:0;
+}
+
+#bkmrx-standard div.d, #bkmrx-edit div.d {
+	margin-left: -10px;
+	border: 1px solid #c1c1c1;
+	display:inline-block;
+	background-color: white;
+	padding: 2px 5px;
+	font-size: 85%;
+	
+	-moz-box-shadow: -2px 2px 2px #888;
+	-webkit-box-shadow: -2px 2px 2px #888;
+	box-shadow: -2px 2px 2px #888;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/* The below will ensure that inline edits are well, inline */
+div.tags form, div.tags input, div.added_tags {
+	display:inline;
+}
+div.tags {
+	margin: 4px 0;
+}
+div.bkmrk form {
+	display:inline;
+}
+
+/* basic bookmark lists */
+.bkxlist {
+	padding: 5px 1px;
+}
+
+/* tag list */
+ul#ajaxtags {
+	font-size:80%;
+}
+ul#ajaxtags li a {
+	display:inline;
+}
+
+/*
+********************************
+/ End bookmark specific stylings
+********************************
+*/
+
+
+/*
+headings
+*/
+h1, h2, h3, h4 {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+div.container-fluid h1 {
+	padding: 10px 0;
+}
+
+/* form validation */
+label:hover {
+	cursor: pointer;
+}
+label.valid {
+	width: 24px;
+	height: 24px;
+	background: url(/img/valid.png) center center no-repeat;
+	display: inline-block;
+	text-indent: -9999px;
+}
+label.error {
+	font-weight: bold;
+	color: red;
+	padding: 2px 8px;
+	margin-top: 2px;
+	display: inline-block;
+}
+
+/* images */
+.bkx-icon {
+	width: 16px;
+	height: 16px;
+}
+
+/* tags */
+
+a.deltag {
+	color:#fff;
+}
+li a.deltag {
+	padding-left:5px;
+}
+
+/* end tags */
+
+/* inputs */
+input#tagedit-input {
+	box-shadow: none !important;
+}
+/* end inputs */
+
+/**
+* "Add to" bookmarklet button
+*/
+p.bkx-bklet-button {
+	margin: 15px 0 15px 50px;
+}
+.bkx-bklet-button, .bkx-bklet-button a, .bkx-bklet-button a:hover {
+	color: white;
+	cursor: url(/img/openhand.cur), default !important;
+	text-decoration: none;
+
+}

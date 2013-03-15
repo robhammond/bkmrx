@@ -1,0 +1,13 @@
+% layout 'default';
+% title 'Privacy';
+<h1>Privacy Policy</h1>
+<p>Your privacy &amp; security is paramount.</p>
+<h2>Cookie Policy</h2>
+<p>We only use cookies that are absolutely necessary for the running and continued development of this site. 
+By using the site you consent to us setting these cookies.</p>
+<h2>Data Protection</h2>
+<p>bkmrx.org will never share your details with any third party website or company.</p>
+<h2><i>Social</i> Bookmarking</h2>
+<p>As with most social bookmarking sites, your bookmarks are public by default. This may change
+in future based on user feedback - if you want to change the behaviour so users can set their own 
+preferences, fork on Github and send us a pull request :-)</p>

@@ -1,0 +1,44 @@
+% layout 'default';
+% title 'search results';
+
+<div class="row-fluid">
+	<div class="span2 well">
+		<ul class="nav nav-list">
+			<li class="nav-header">Filter by source</li>
+			<li<% if ((param('type')) && (param('type') eq '')) { %> class="active"<% } %>><a href="/search/?q=<%= $results->{'query'} %>"><i class="icon-globe"></i> all links</a></li>
+			<li<% if ((param('type')) && (param('type') eq 'me')) { %> class="active"<% } %>><a href="/search/?q=<%= $results->{'query'} %>&amp;type=me"><i class="icon-user"></i> my bkmrx</a></li>
+			<li<% if ((param('type')) && (param('type') eq 'twitter')) { %> class="active"<% } %>><a href="/search/?q=<%= $results->{'query'} %>&amp;type=twitter"><i class="icon-twitter"></i> my tweets</a></li>
+			<li<% if ((param('type')) && (param('type') eq 'github')) { %> class="active"<% } %>><a href="/search/?q=<%= $results->{'query'} %>&amp;type=github"><i class="icon-github"></i> my github</a></li>
+			<li class="divider"></li>
+		</ul>
+	</div>
+	<div class="span9">
+		% if ( $results->{'total_results'} > 0 ) {
+		<h3>Search Results:</h3>
+		<p style="text-align:right;">Results <strong><%= $results->{'first_result'} . '-' . $results->{'last_result'} %></strong> 
+	    	of <strong><%= $results->{'total_results'} %></strong> 
+	        for <strong><%= $results->{'query'} %></strong>
+        	% if ((param('type')) && (param('type') eq 'twitter')) {
+        		in my tweets
+        	% } elsif ((param('type')) && (param('type') eq 'github')) {
+        		in my github stars
+        	% }
+	    </p>
+	    % } else {
+	    	<h2>No results...</h2>
+	    	<div class='alert alert-info'><b>Oh no!</b><br>No results for <b><%= $results->{'query'} %></b> yet - add some more bkmrx and try again later...</div>
+	    % }
+		% for my $res (@{$results->{'results'}}) {
+			<div class="bkmrk">
+				<h3><a href="<%= $res->{'url'} %>"><%== $res->{'title'} %></a></h3>
+				<span class="desc"><%== $res->{'snippet'}; %></span>
+				<span class="url"><%= $res->{'display_url'}; %></span>
+			</div>
+		% }
+		<div class="pagination">
+		    <ul>
+		    	<%== $pages %>
+		    </ul>
+		</div>
+	</div>
+</div>

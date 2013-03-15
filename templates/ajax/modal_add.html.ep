@@ -1,0 +1,57 @@
+<div class="modal-header"><a class="close" data-dismiss="modal">&times;</a>
+	<h3>Add a Bookmark</h3>
+</div>
+<div class="modal-body">
+	<form name="submiturl" id="submiturl" class="form-horizontal">
+		<div class="control-group">
+			<label class="control-label" for="url">URL:</label>
+			<div class="controls">
+				<input type="url" name="url" placeholder="http://" id="step1url" />
+				<i class="loading icon-refresh icon-spin" style="display:none"></i>
+				<label id="urlsub_error" class="hidden">Please enter a valid URL</label>
+			</div>
+		</div>
+	</form>
+
+	<div id="urlform2" style="display:none">
+		<form name="submiturl_2" id="submiturl_2" action="/me/add" method="post">
+		<fieldset>
+		<div id="callback">
+			<h5 id="ret_url"></h5>
+			<h6 id="url_msg"></h6>
+		</div>
+			<input type="hidden" name="ajaxadd" value="1" />
+			<div class="row">
+				<div class="span2">Title:</div>
+				<div class="span4"><input type="text" id="title" name="title" value="" tabindex="1" style="width:355px" /></div>
+			</div>
+			<div class="row">
+				<div class="span2">Description:</div>
+				<div class="span4"><textarea id="desc" name="desc" style="width:355px" tabindex="2"></textarea></div>
+			</div>
+			<div class="row">
+				<div class="span2">Tags:</div>
+				<div class="span4">
+					<div id="addtags">
+						<input name="tags[]" class="tag" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span2">Privacy:</div>
+				<div class="span4">
+					<select name="status" id="privacy" tabindex="4">
+						<option value="0">Public</option>
+						<option value="1">Private</option>
+					</select>
+				</div>
+			</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn" data-toggle="button" data-loading-text="Loading URL..." autocomplete="off" id="step1sub">Add URL</button>
+	<button class="btn" data-toggle="button" id="step2sub" style="display:none">add bkmrk</button>
+</div>
+<script type="text/javascript" src="/js/bkx-modal.js"></script>

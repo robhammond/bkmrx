@@ -1,0 +1,11 @@
+% layout 'default';
+% title 'Terms of Service';
+<div class="row-fluid">
+	<div class="span8">
+		<h1>Terms of Service</h1>
+		<p>bkmrx.org is an ongoing work in progress; its source code is open and freely available to all,
+		and in the ongoing quest to make a better product, features may appear and disappear.
+		Using the site and any associated widgets, plugins or bookmarklets is done entirely at your own risk and
+		in the unlikely event of anything bad happening bkmrx.org can accept no responsibility.</p>
+	</div>
+</div>

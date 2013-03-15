@@ -1,0 +1,14 @@
+% layout 'default';
+% title 'backup';
+%= include 'parts/account-side'
+
+<div class="span6">
+	<h2>backup bkmrx</h2>
+	<hr/>
+% if (my $msg = flash 'msg') {
+	<div class="alert alert-info"><%= $msg %></div>
+% }					
+	<p>Backup your bookmarks by clicking the button below:</p>
+	<p><a class="btn btn-primary" href="/me/backup-html"><i class="icon-download"></i> download</a></p>
+	<p>The backup is compatible with delicious.com and should also be importable into most web browsers.</p>
+</div>

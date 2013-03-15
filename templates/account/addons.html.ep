@@ -1,0 +1,19 @@
+% layout 'default';
+% title 'addons';
+%= include 'parts/account-side'
+<div class="span8">
+<h1>Browser Addons</h1>
+<h2>Bookmarklet</h2>
+<p>A bookmarklet is a special kind of bookmark - if you click on this bookmark in your browser it will
+	send you to to our "add bookmark" page with the core details of the page you're on pre-filled</p>
+<p>Grab the button below &amp; drag it to your browser bookmarks bar:</p>
+
+<p class="btn btn-primary btn-disabled bkx-bklet-button"><a href="javascript:(function(){window.open('http://<%= $host %><%= $port %>/bklet?title='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href),'bkmrx','status=0,toolbar=0,location=0,menubar=0,resizable=false,scrollbars=false,height=600,width=450');})();" onclick="return false;">+ add to bkmrx</a></p>
+
+
+<h2>iPhone / iPad</h2>
+<p>Create a new bookmark and copy &amp; paste the code below into the URL bar:</p>
+<pre>
+javascript:(function(){window.open('http://<%= $host %><%= $port %>/bklet?title='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href));})();
+</pre>
+</div>

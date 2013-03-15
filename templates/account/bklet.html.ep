@@ -1,0 +1,54 @@
+% layout 'minimal';
+% title 'Add a bookmark';
+<h3>add bkmrk</h3>
+% if (flash 'dupe') {
+	<div class="alert alert-danger"><%= flash 'dupe' %></div>
+% }
+<div>
+	<legend style="font-size:12px;color:green;"><%= $display_url %></legend>
+	<form method="post" name="submiturl_2" id="submiturl_2" action="/me/add">
+	<input type="hidden" name="url" value="<%= param 'url' %>">
+	<fieldset>
+		<div class="control-group">
+			<label class="control-label" for="title">Title:</label>
+			<div class="controls">
+				<input type="text" name="title" value="<%= param 'title' %>" size="150" style="width:350px;" tabindex="1" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="desc">Description:</label>
+			<div class="controls">
+				<textarea name="desc" cols="35" rows="2" tabindex="3" style="width:350px"></textarea>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="tags">Tags:</label>
+			<div class="controls">
+				<div id="updatetags">
+					<input name="tags[]" class="tag" tabindex="4" />
+				</div>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="privacy">Privacy:</label>
+			<div class="controls">
+				<select name="status" id="privacy" tabindex="5">
+					<option value="0">Public</option>
+					<option value="1">Private</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-actions">
+			<input type="submit" value="save &amp; close &raquo;" class="btn btn-primary" />
+		</div>
+		</fieldset>
+	</form>
+</div>
+<script type="text/javascript">
+	$(function() {
+		$( "#submiturl_2" ).find('input.tag').tagedit({
+			breakKeyCodes: [ 13, 44, 32, 46, 59 ],
+			tabIndex: 4
+		});
+	});
+</script>

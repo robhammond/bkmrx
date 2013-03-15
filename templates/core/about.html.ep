@@ -1,0 +1,58 @@
+% layout 'default';
+% title 'about';
+<div class="row-fluid">
+	<div class="span1">&nbsp;</div>
+	<div class="span7">
+		<h1>about bkmrx.org</h1>
+		<p>bkmrx.org is an open source project based on <a href="https://bkmrx.com/">bkmrx.com</a>, built purely in Perl,
+		using the <a href="http://mojolicio.us/">Mojolicious</a> framework, <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>, 
+		<a href="http://mongodb.org/">MongoDB</a> and the <a href="http://lucy.apache.org/">Lucy</a> search engine.</p>
+		<h2>bookmarking is broken</h2>
+		<p>bkmrx is a (small) attempt to bring online bookmarking into the 21<sup>st</sup> century. 
+		bkmrx allows you to be the curator of your own search engine, and your own links. Unlike
+		Google, Bing et al, you can define your own <a href="http://www.thefilterbubble.com/">filter bubble</a>.</p>
+		<p>By open-sourcing bkmrx.org, many minds may be able to fix what delicious and others have so far failed 
+		at doing.</p>
+		<p>There are tons of great resources out there that may spark ideas for <a href="https://github.com/robhammond/bkmrx">contributing to bkmrx.org</a>:</p>
+		<ul>
+			<li><a href="https://blog.mozilla.org/ux/2012/10/save-for-later/">Save for later</a> - an excellent
+			 user study conducted by Mozilla exploring the concept of 'save for later', and looking at various
+			 potential solutions to the problem.</li>
+		</ul>
+		<h2>Comparison</h2>
+		<p>Comparison with other bookmarking services:</p>
+		<table class="table table-bordered table-striped">
+			<tr><th>Feature</th><th>bkmrx.org</th><th>bkmrx.com</th><th>delicious</th><th>diigo</th><th>Google Bookmarks</th></tr>
+			<tr><td>Social bookmarking</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td></tr>
+			<tr><td>Open Source</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+			<tr><td>Full text search of bookmarks</td><td>Yes</td><td>Yes (public only)</td><td>No</td><td>Yes (paid)</td><td>Yes</td></tr>
+			<tr><td><i class="icon-twitter"></i> Search your tweets</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr>
+			<tr><td><i class="icon-github"></i> Search your Github stars</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr>
+			<tr><td><i class="icon-facebook"></i> Search your Facebook links</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr>
+			<tr><td>Tagging</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+			<tr><td>Intelligent tags</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr>
+			<tr><td>Filter by source</td><td>Yes</td><td>Yes</td><td>Yes (limited)</td><td>No</td><td>No</td></tr>
+			<tr><td>Import from other sites</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td></tr>
+			<tr><td>Export to other sites</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+			<tr><td><i class="icon-twitter"></i> Auto-add links from Twitter</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr>
+			<tr><td><i class="icon-github"></i> Auto-add links from Github</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes (favourites)</td><td>No</td></tr>
+			<tr><td><i class="icon-facebook"></i> Auto-add links from Facebook</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr>
+			<tr><td>Cross-browser bookmarklet</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+			<tr><td>Private by default option</td><td>No</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+			<tr><td>Search bookmark descriptions</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+			<tr><td>Search bookmark titles</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+			<tr><td>Search bookmark tags</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+			<tr><td>Firefox add-on</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td></tr>
+			<tr><td>Google Chrome add-on</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td></tr>
+		</table>
+	</div>
+</div>
+<script type="text/javascript">
+$("td").text(function(index, text) {
+	if (text.match(/^Yes/)) {
+		$(this).css('color', 'green');
+	} else if (text.match(/^No/)) {
+		$(this).css('color', 'red');
+	}
+});
+</script>

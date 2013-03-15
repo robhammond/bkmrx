@@ -1,0 +1,32 @@
+% layout 'default';
+% title 'import';
+%= include 'parts/account-side'
+
+<div class="span6">
+	<h2>import links</h2>
+	<hr/>
+% if (my $msg = flash 'msg') {
+	<div class="alert alert-info"><%= $msg %></div>
+% }					
+	<h3>import from delicious</h3>
+	<p>To import your delicious.com bookmarks, sign in, click "Settings", then in the right-hand navigation bar look for "export / back up links". Export the file and upload it using
+	the form below:</p>
+	<form class="well form-inline" action="/me/import-delicious" method="post" enctype="multipart/form-data">
+		<input type="file" name="delicious" id="file" />
+		&nbsp;
+		<input type="submit" name="submit" value="upload &raquo;" class="btn btn-primary" />
+	</form>
+	
+	<h3>import firefox bookmarks</h3>
+	<p>In order to import your Firefox bookmarks:</p>
+	<ol>
+		<li>Hit CTRL+SHIFT+B to bring up the bookmarks screen</li>
+		<li>Click "import &amp; backup"</li>
+		<li>Click "Export Bookmarks to HTML"</li>
+	</ol>
+	<form class="well form-inline" action="/me/import-ffx" method="post" enctype="multipart/form-data">
+		<input type="file" name="ffx" />
+		&nbsp;
+		<input type="submit" name="submit" value="upload &raquo;" class="btn btn-primary" />
+	</form>
+</div>

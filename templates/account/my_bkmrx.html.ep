@@ -1,0 +1,97 @@
+% layout 'default';
+% title 'my bkmrx';
+<div class="row-fluid">
+	<div class="span2 well">
+		<ul class="nav nav-list">
+			<li class="nav-header">Filter by source</li>
+			<li><a href="/bkmrx"><i class="icon-globe"></i> all</a></li>
+			<li<% if ($source eq 'twitter') { %> class="active"<% } %>><a href="?source=twitter"><i class="icon-twitter-sign"></i> twitter</a></li>
+			<li<% if ($source eq 'github') { %> class="active"<% } %>><a href="?source=github"><i class="icon-github-sign"></i> github</a></li>
+			<li class="divider"></li>
+		</ul>
+		<ul class="nav nav-list">
+			<li class="nav-header">Filter by tag</li>
+		</ul>
+		<input type="text" id="filter" name="filter" value="<%= param 'tag' %>" style="width:120px" />
+		<ul class="nav nav-list" id="ajaxtags"></ul>
+	</div>
+	<div class="span9">
+		<h3><%== $heading %></h3>
+		<% if ($total_results == 0) { %>
+			<div class="alert alert-warning"><b>no bkmrx yet!</b><br><br>Why not add some bookmarks using one of our
+			<a href="/addons">browser add-ons</a>, <a href="/me/import">import your bookmarks</a>, <a href="/me/">link your social media profiles</a>, or the 'add bkmrk' link in the navigation bar</div>
+		<% } else { %>
+		<p align="right"><em>Results <%= $first_result %> - <%= $last_result %> of <%= $total_results %></em></p>
+		
+		<div id="bkmrx-standard">
+			<% for my $bkx (@$bkmrx) { 
+				my $hidden = '';
+				my $lock;
+				if ($bkx->{'status'} == 1) {
+					$lock = '<i class="icon-lock bkx-lock" b_id="'. $bkx->{'b_id'} . '"></i> ';
+				} else {
+					$lock = '<i class="icon-unlock bkx-unlock" b_id="'. $bkx->{'b_id'} . '"></i> ';
+				}
+				my $source_icon = '';
+				if ($bkx->{'source'} eq 'twitter') {
+					$source_icon = " <i class='icon-twitter'></i>";
+				} elsif ($bkx->{'source'} eq 'github') {
+					$source_icon = " <i class='icon-github'></i>";
+				}
+			%>
+			<div class="bkmrk row-fluid" added="<%= $bkx->{'added'} %>" bkx="<%= $bkx->{'b_id'} %>">
+				<div class="span8" id="d<%= $bkx->{'b_id'} %>"<%= $hidden %>>
+					<div class="bkx-actions tip-lock"><%== $lock %></div><div class="bkx-jedit-hide" bkx="<%= $bkx->{'b_id'} %>"><i class="icon-edit"></i></div><h3><a href="<%= $bkx->{'url'} %>" title="<%= $bkx->{'title'} %>"><%= $bkx->{'disp_title'} %></a> <%== $source_icon %></h3>
+					<div class="bkx-editor bkx-actions tip-wrench" bkx="<%= $bkx->{'b_id'} %>"><i class="icon-wrench" style="color:gray;"></i></div>
+					<div class="bkx-wrapper">
+						<div class="bkx-jedit-hide" bkx="<%= $bkx->{'b_id'} %>"><i class="icon-edit"></i></div><span class="desc"><%== $bkx->{'desc'} %></span>
+						<div class="bkx-jedit-hide" bkx="<%= $bkx->{'b_id'} %>"><img src="" width="16" height="16"></div><span class="url"><%= $bkx->{'disp_url'} %></span>
+					</div>
+					<div class="tags">
+						<i class="icon-tags"></i> 
+						<% for my $tag (@{$bkx->{'tags'}}) { %>
+							<span class='label label-info' style='margin:2px;' id='<%= $tag %>-<%= $bkx->{'b_id'} %>'><a href='?tag=<%= $tag %>' style='color:white;'><%= $tag %></a> <a href='/ajax/delete-tag?tag=<%= $tag %>&amp;b_id=<%= $bkx->{'b_id'} %>' style='color:white;' class='deltag'>&times;</a></span>
+						<% } %> 
+						<div id="added_tags_<%= $bkx->{'b_id'} %>" class="added_tags"></div> 
+						<span class="add_tag" id="<%= $bkx->{'b_id'} %>"></span>
+					</div>			
+				</div>
+				<div class="span2">
+					<div class="bkx-jedit-hide" bkx="<%= $bkx->{'b_id'} %>">
+						<button bkx="<%= $bkx->{'b_id'} %>" class="btn btn-danger delbkmrk">delete</button>
+					</div>
+				</div>
+			</div>
+			<% } %>
+		</div>
+		<div class="pagination">
+		    <ul>
+		    %== $pages
+		    </ul>
+		</div>
+		<% } %>
+	</div>
+</div>
+<script type="text/javascript" src="/js/jquery.jeditable.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	add_tags();
+    updateTags('<%= param "tag" %>');
+});
+
+dateSeparate(<%== dumper $dates %>);
+
+$('div.tip-wrench').tooltip({title: 'click to edit bkmrk', placement: 'right'});
+$('div.tip-lock').tooltip({title: 'click to make private/public', placement: 'right'});
+
+$('div.bkx-editor').toggle(function(){
+		var bkx_id = $(this).attr('bkx');
+		bkxEditOn(bkx_id);
+	},
+	function() {
+		var bkx_id = $(this).attr('bkx');
+		bkxEditOff(bkx_id);
+	}
+);
+</script>

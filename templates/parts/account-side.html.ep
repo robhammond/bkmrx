@@ -1,0 +1,16 @@
+<div class="span2 well">
+	<ul class="nav nav-list">
+		<li class="nav-header">me</li>
+		<li<% if (url_for eq '/me/') { %> class="active"<% } %>><a href="/me/"><i class="icon-pencil"></i> edit profile</a></li>
+		<li><a href="/user/<%= session 'username' %>"><i class="icon-user"></i> view profile</a></li>
+		<li class="divider"></li>
+		<li class="nav-header">tools</li>
+		<li<% if (url_for eq '/me/import') { %> class="active"<% } %>><a href="/me/import"><i class="icon-upload"></i> import links</a></li>
+		<li<% if (url_for eq '/me/backup') { %> class="active"<% } %>><a href="/me/backup"><i class="icon-download"></i> backup links</a></li>
+		<li<% if (url_for eq '/addons') { %> class="active"<% } %>><a href="/addons"><i class="icon-wrench"></i> addons</a></li>
+		<li class="divider"></li>
+		<li class="nav-header">bkmrx admin</li>
+		<li<% if (url_for eq '/me/edit-tags') { %> class="active"<% } %>><a href="/me/edit-tags"><i class="icon-tags"></i> edit tags</a></li>
+		
+	</ul>
+</div>

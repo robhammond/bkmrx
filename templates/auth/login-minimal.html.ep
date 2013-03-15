@@ -1,0 +1,76 @@
+% layout 'minimal';
+% title 'login';
+<div class="row-fluid">
+	<div class="span12">
+		<legend>Sign up or log in below</legend>
+		% if (my $msg = flash 'error') {
+			<div class="alert alert-danger">
+			%= $msg
+			</div>
+		% }
+		<input type="radio" name="register" value="0" id="existing" checked="checked" /> <label for="existing" style="display:inline;">I am an existing user</label><br/>
+		<input type="radio" name="register" value="1" id="new-user" /> <label for="new-user" style="display:inline;">I am a new user</label><br/><br>
+
+		<form method="post" id="login-form" action="/login" class="form-horizontal" novalidate="novalidate">
+		<fieldset>
+		% if (flash 'bk_title') {
+			<input type="hidden" name="title" value="<%= flash 'bk_title' %>" />
+			<input type="hidden" name="url" value="<%= flash 'bk_url' %>" />
+		% }
+		<div class="control-group" id="tr-email">
+			<label for="email" class="control-label">Email:</label>
+			<div class="controls">
+				<input type="email" name="email" id="email" />
+			</div>
+		</div>
+		<div class="control-group" id="tr-password">
+			<label for="pass" class="control-label">Password:</label>
+			<div class="controls">
+				<input type="password" name="pass" id="pass" />
+			</div>
+		</div>
+
+		<div class="form-actions">
+			<button class="btn btn-primary" type="submit" id="submit">Log in &raquo;</button>
+		</div>
+		</fieldset>
+		</form>
+
+		<form method="post" id="register-form" action="/register" style="display:none;" class="form-horizontal" novalidate="novalidate">
+		<fieldset>
+
+		<div class="control-group" id="div-username" style="display:none">
+			<label for="username" class="control-label">Username:</label>
+			<div class="controls">
+				<input type="text" name="username" id="username" />
+			</div>
+		</div>
+		<div class="control-group" id="div-email" style="display:none">
+			<label for="email" class="control-label">Email:</label>
+			<div class="controls">
+				<input type="email" name="email" id="r-email" />
+			</div>
+		</div>
+		<div class="control-group" id="div-password" style="display:none">
+			<label for="pass" class="control-label">Password:</label>
+			<div class="controls">
+				<input type="password" name="pass" id="r-pass" />
+			</div>
+		</div>
+		<div class="control-group" id="div-confirm" style="display:none">
+			<label for="pass2" class="control-label">Confirm Password:</label>
+			<div class="controls">
+				<input type="password" name="pass2" id="pass2" />
+			</div>
+		</div>
+
+		<div class="form-actions">
+			<button class="btn btn-primary" type="submit" id="register" style="display:none;">Register &raquo;</button>
+		</div>
+		</fieldset>
+		</form>
+	</div>
+</div>
+
+<script src="/js/jquery.validate.js"></script>
+<script src="/js/bkx-validate-script.js"></script>

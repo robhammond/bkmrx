@@ -1,0 +1,41 @@
+INSTALL
+
+Prerequisites:
+--------------
+
+ - Perl 5.10+
+ - MongoDB 2.2+
+
+Perl Modules:
+
+ - AnyEvent
+ - AnyEvent::HTTP
+ - Data::Validate::Domain
+ - Data::Validate::IP
+ - Date::Calc
+ - Date::Manip
+ - DateTime
+ - HTML::Entities
+ - HTML::TreeBuilder::XPath
+ - JSON
+ - List::MoreUtils
+ - Lucy
+ - Modern::Perl 
+ - Mojolicious
+ - MongoDB
+ - Net::IP::Match::Regexp
+ - Net::Twitter
+ - String::Truncate
+ - Tie::IxHash
+ - URI::Encode
+ - URI::Escape
+ - WWW::Mechanize
+
+Or, in one big CPAN Minus command:
+
+cpanm AnyEvent AnyEvent::HTTP Data::Validate::Domain Data::Validate::IP Date::Calc Date::Manip DateTime HTML::Entities HTML::TreeBuilder::XPath JSON List::MoreUtils Lucy Modern::Perl  Mojolicious MongoDB Net::IP::Match::Regexp Net::Twitter String::Truncate Tie::IxHash URI::Encode URI::Escape WWW::Mechanize
+
+Setting up:
+-----------
+You need to set up a twitter API key and enter the credentials into the 
+bin/fetch-twitter-api.pl script in order for the twitter function to work.

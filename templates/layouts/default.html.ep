@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %> | <%= $config->{brand} %></title>
+	<script src="/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+	<script src="/js/bkx-js-head.js" type="text/javascript"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.tagedit.js"></script>
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/css/bkx-styles.css" rel="stylesheet">
+	<link href="/css/jquery-ui-1.8.16.custom.css" rel="stylesheet">
+	<link href="/css/jquery.tagedit.css" rel="stylesheet">
+</head>
+<body>
+<div class="navbar">
+	<div class="navbar-inner">
+		<a class="brand" href="/"><%= $config->{brand} %></a>
+		% if (session 'user_id') {
+			%= include 'parts/account-nav'
+		% } else {
+			%= include 'parts/standard-nav'
+		% }
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<%= content %>
+	</div>
+</div>
+<hr>
+<footer>
+&copy; bkmrx 2011-2013 
+| <a href="/about">about</a> 
+<% if (session 'user_id') { %>| <a href="/addons">add-ons</a> <% } %>
+| <a href="/tos" title="terms of service">tos</a> 
+| <a href="/privacy">privacy</a>
+| <i class="icon-github"></i> <a href="https://github.com/robhammond/bkmrx">Fork me on Github</a>
+</footer>
+<div class="modal hide fade" id="bkx-modal"></div>
+%= include 'parts/js-common'
+</body>
+</html>

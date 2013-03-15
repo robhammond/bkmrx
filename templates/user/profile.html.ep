@@ -1,0 +1,32 @@
+% layout 'default';
+% title 'profile';
+
+%= include 'parts/profile-side'
+<div class="span5">
+	<h1><%= $name %></h1>
+	<h2>recent bkmrx</h2>
+	<% for my $bkx (@$bkmrx) { %>
+		<div class="bkmrk">
+			<h3><a href="<%= $bkx->{'url'} %>" rel="nofollow" title="<%= $bkx->{'title'} %>"><%= $bkx->{'disp_title'} %></a> <%== $bkx->{'source_icon'} %></h3>
+			<span class="url"><%= $bkx->{'disp_url'} %></span>
+			<div class="tags" style="padding-left:23px;">
+			<% for my $tag (@{$bkx->{'tags'}}) { %>
+				<span class='label label-info' style='margin:2px;' id='<%= $tag %>-<%= $bkx->{'b_id'} %>'><a href='?tag=<%= $tag %>' style='color:white;'><%= $tag %></a></span>
+			<% } %> 
+			</div>
+		</div>
+	<% } %>
+</div>
+<script type="text/javascript">
+$("button#follow-user").click(function() {
+	$.ajax({
+		url: '/ajax/follow',
+		data: "follow=" + <%= $name %>,
+		dataType: "html",
+		success: function(result) {
+			$('button#follow-user').attr("class", "btn btn-success disabled");
+			$('button#follow-user').text("following!");
+		}
+	});
+});
+</script>

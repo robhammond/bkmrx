@@ -1,0 +1,9 @@
+TODO
+
+- All bookmarks added to system are currently searchable by all users, regardless of whether they
+  are marked as private or not; hence there is a potential privacy issue
+- Implement integration for other third party services such as Facebook, Readability, etc
+- Prettify profile pages
+- Implement 'follow' function
+- Move away from default bootstrap theme
+- Allow users to set a default privacy setting for all imported bookmarks

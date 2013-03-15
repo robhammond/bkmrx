@@ -1,0 +1,57 @@
+% layout 'default';
+% title 'my account';
+%= include 'parts/account-side'
+<div class="span5">
+	% if (my $msg = flash 'msg') {
+		<div class="alert alert-info"><%= $msg %></div>
+	% }
+	<div id="profile">
+		<div>
+			<h2 style="display:inline">my profile</h2>
+			<h3 style="display:inline;float:right"><%= session 'username' %> &nbsp; &nbsp;<img src="<%= $user_details->{'gravatar'} %>" alt="" />&nbsp;&nbsp;</h3>
+			
+		</div>
+		<hr />
+		<form method="post" class="form-inline form-horizontal">
+		<fieldset>
+			<div class="control-group">
+				<label class="control-label" for="name">Name:</label>
+				<div class="controls">
+					<input type="text" name="name" value="<%= $user_details->{'name'} %>" id="name" placeholder="full name" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="email">Email:</label>
+				<div class="controls">
+					<input type="email" id="email" name="email" value="<%= $user_details->{'email'} %>" disabled="disabled" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="website">Website:</label>
+				<div class="controls">
+					<input type="text" name="website" value="<%= $user_details->{'website'} %>" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="github" class="control-label">GitHub:</label>
+				<div class="controls">
+					<input type="text" name="github" value="<%= $user_details->{'github'} %>" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="twitter" class="control-label">Twitter:</label>
+				<div class="controls">
+					<div class="input-prepend">
+						<span class="add-on">@</span><input type="text" name="twitter" value="<%= $user_details->{'twitter'} %>" style="width:185px;" />
+					</div>
+				</div>
+			</div>
+			</fieldset>
+			<div class="form-actions" style="text-align:right">
+				<input type="submit" class="btn btn-primary" value="Update &raquo;" />
+			</div>
+			</fieldset>
+
+		</form>
+	</div>
+</div>
