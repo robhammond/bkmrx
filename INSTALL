@@ -30,10 +30,11 @@ Perl Modules:
  - URI::Encode
  - URI::Escape
  - WWW::Mechanize
+ - Mojolicious::Plugin::Bcrypt
 
 Or, in one big CPAN Minus command:
 
-cpanm AnyEvent AnyEvent::HTTP Data::Validate::Domain Data::Validate::IP Date::Calc Date::Manip DateTime HTML::Entities HTML::TreeBuilder::XPath JSON List::MoreUtils Lucy Modern::Perl  Mojolicious MongoDB Net::IP::Match::Regexp Net::Twitter String::Truncate Tie::IxHash URI::Encode URI::Escape WWW::Mechanize
+cpanm AnyEvent AnyEvent::HTTP Data::Validate::Domain Data::Validate::IP Date::Calc Date::Manip DateTime HTML::Entities HTML::TreeBuilder::XPath JSON List::MoreUtils Lucy Modern::Perl  Mojolicious MongoDB Net::IP::Match::Regexp Net::Twitter String::Truncate Tie::IxHash URI::Encode URI::Escape WWW::Mechanize Mojolicious::Plugin::Bcrypt
 
 Setting up:
 -----------
