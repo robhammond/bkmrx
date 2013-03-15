@@ -7,3 +7,4 @@ TODO
 - Implement 'follow' function
 - Move away from default bootstrap theme
 - Allow users to set a default privacy setting for all imported bookmarks
+- Fix UTF8 handling in search results pages
