@@ -83,7 +83,7 @@ for my $filename (@filenames) {
     $indexer->add_doc($doc);
     # remove file if it's been indexed
     if ($doc) {
-        # system("rm " . catfile( $corpus_source, $filename ));
+        system("rm " . catfile( $corpus_source, $filename ));
     }
 }
 
