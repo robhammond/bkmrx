@@ -200,6 +200,13 @@ sub register {
 	my $db    = $self->db;
 	my $users = $db->get_collection( 'users' );
 
+	# search to see if username is unique before inserting
+	my $exists = $users->find({ username => $username })->count;
+	if ($exists > 0) {
+		$self->flash(error => "username already exists - please try again");
+		return $self->redirect_to('/login');
+	}
+
 	my $user_id = $users->insert({
 		username => $username,
 		email => $email,
