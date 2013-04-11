@@ -40,7 +40,7 @@
 				}
 			%>
 			<div class="bkmrk row-fluid" added="<%= $bkx->{'added'} %>" bkx="<%= $bkx->{'b_id'} %>">
-				<div id="d<%= $bkx->{'b_id'} %>"<%= $hidden %>>
+				<div class="span10" id="d<%= $bkx->{'b_id'} %>"<%= $hidden %>>
 					<div class="bkx-actions tip-lock"><%== $lock %></div><div class="bkx-jedit-hide" bkx="<%= $bkx->{'b_id'} %>"><i class="icon-edit"></i></div><h3><a href="<%= $bkx->{'url'} %>" title="<%= $bkx->{'title'} %>"><%= $bkx->{'disp_title'} %></a> <%== $source_icon %></h3>
 					<div class="bkx-editor bkx-actions tip-wrench" bkx="<%= $bkx->{'b_id'} %>"><i class="icon-wrench" style="color:gray;"></i></div>
 					<div class="bkx-wrapper">

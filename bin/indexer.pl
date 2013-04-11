@@ -1,6 +1,7 @@
 #!/usr/bin/env perl
 use strict;
 use File::Spec::Functions qw( catfile );
+use File::Path qw(make_path);
 use Lucy::Plan::Schema;
 use Lucy::Plan::FullTextType;
 use Lucy::Analysis::PolyAnalyzer;
@@ -15,6 +16,9 @@ my $log = Mojo::Log->new;
 
 my $path_to_index = "$FindBin::Bin/../web-index";
 my $corpus_source = "$FindBin::Bin/../corpus";
+
+# Ensure index directory exists
+make_path( "$path_to_index", {verbose => 1,mode => 0755,});
 
 my $create = 0;
 # Run with --create=1 to recreate the index from scratch
@@ -79,7 +83,7 @@ for my $filename (@filenames) {
     $indexer->add_doc($doc);
     # remove file if it's been indexed
     if ($doc) {
-        system("rm " . catfile( $corpus_source, $filename ));
+        # system("rm " . catfile( $corpus_source, $filename ));
     }
 }
 
@@ -91,7 +95,7 @@ $log->info("Finished indexing");
 sub parse_file {
     my $filename = shift;
     my $filepath = catfile( $corpus_source, $filename );
-    open( my $fh, '<', $filepath ) or die "Can't open '$filepath': $!";
+    open( my $fh, '<:utf8', $filepath ) or die "Can't open '$filepath': $!";
     my $text = do { local $/; <$fh> };    # slurp file content
     
     $text =~ /<uri>(.*?)<\/uri><title>(.*?)<\/title><content>(.*?)<\/content>/ms 
