@@ -1,8 +1,8 @@
-# 	bkmrx.org
+# bkmrx
 
-##Synopsis
+## Synopsis
 
-[bkmrx.org][1] is an open source social bookmarking website based on [bkmrx.com][2], built in Perl, using the [Mojolicious][3] framework, [Twitter Bootstrap][4], [MongoDB][5] and the [Lucy][6] search engine.
+bkmrx is an open source social bookmarking website based on [bkmrx.com][2], built in Perl, using the [Mojolicious][3] framework, [Twitter Bootstrap][4], [MongoDB][5] and the [Lucy][6] search engine.
 
 ## Setup
 
